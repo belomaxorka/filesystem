@@ -29,6 +29,8 @@ final class Filesystem
 	 */
 	public static function exists(string $path): bool
 	{
+		clearstatcache();
+
 		return file_exists($path);
 	}
 
@@ -64,5 +66,33 @@ final class Filesystem
 		}
 
 		return is_dir($path);
+	}
+
+	/**
+	 * Tells whether a file or a directory exists and is readable.
+	 *
+	 * @param string $path Path to target file or folder.
+	 * @return bool
+	 * @since v0.0.2
+	 */
+	public static function isReadable(string $path): bool
+	{
+		clearstatcache();
+
+		return is_readable($path);
+	}
+
+	/**
+	 * Tells whether the filename is writable.
+	 *
+	 * @param string $path Path to target file or folder.
+	 * @return bool
+	 * @since v0.0.2
+	 */
+	public static function isWritable(string $path): bool
+	{
+		clearstatcache();
+
+		return is_writable($path);
 	}
 }
