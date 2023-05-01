@@ -32,6 +32,56 @@
 
 ## 🎲 Methods
 
+### Checks whether a file or directory exists.
+
+```php
+Filesystem::exists($path);
+```
+
+| Attribute | Description                    | Type   | Required | Default |
+|-----------|--------------------------------|--------|----------|---------|
+| $path     | Path to target file or folder. | string | Yes      |         |
+
+### Tells whether the filename is a regular file.
+
+```php
+Filesystem::isFile($path);
+```
+
+| Attribute | Description          | Type   | Required | Default |
+|-----------|----------------------|--------|----------|---------|
+| $path     | Path to target file. | string | Yes      |         |
+
+### Tells whether the filename is a directory.
+
+```php
+Filesystem::isDir($path);
+```
+
+| Attribute | Description            | Type   | Required | Default |
+|-----------|------------------------|--------|----------|---------|
+| $path     | Path to target folder. | string | Yes      |         |
+
+### Tells whether a file or a directory exists and is readable.
+
+```php
+Filesystem::isReadable($path);
+```
+
+| Attribute | Description                    | Type   | Required | Default |
+|-----------|--------------------------------|--------|----------|---------|
+| $path     | Path to target file or folder. | string | Yes      |         |
+
+### Tells whether the filename is writable.
+
+```php
+Filesystem::isWritable($path);
+```
+
+| Attribute | Description                    | Type   | Required | Default |
+|-----------|--------------------------------|--------|----------|---------|
+| $path     | Path to target file or folder. | string | Yes      |         |
+
 ## 📦 Quick Start
 
 ```php
