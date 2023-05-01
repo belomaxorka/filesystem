@@ -9,6 +9,9 @@
 
 namespace belomaxorka\Filesystem;
 
+use FilesystemIterator;
+use RecursiveDirectoryIterator;
+
 use belomaxorka\Filesystem\Exceptions\FileNotFoundException;
 use belomaxorka\Filesystem\Exceptions\FolderNotFoundException;
 
@@ -50,16 +53,13 @@ final class Filesystem
 	 *
 	 * @param string $path Path to target file.
 	 * @return bool
+	 * @throws FileNotFoundException
 	 * @since v0.0.3
 	 */
 	public static function removeFile(string $path): bool
 	{
-		try {
-			if (self::isFile($path)) {
-				return unlink($path);
-			}
-		} catch (FileNotFoundException $exception) {
-			return false;
+		if (self::isFile($path)) {
+			return unlink($path);
 		}
 
 		return false;
@@ -114,6 +114,23 @@ final class Filesystem
 		}
 
 		return is_dir($path);
+	}
+
+	/**
+	 * Tells whether the directory is empty.
+	 *
+	 * @param string $path Path to target folder.
+	 * @return bool
+	 * @throws FolderNotFoundException
+	 * @since v0.0.4
+	 */
+	public static function isDirEmpty(string $path): bool
+	{
+		if (self::isDir($path)) {
+			return (iterator_count((new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS))) === 0);
+		}
+
+		return true;
 	}
 
 	/**

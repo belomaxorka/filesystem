@@ -103,6 +103,16 @@ Filesystem::removeFile($path);
 |-----------|----------------------|--------|----------|---------|
 | $path     | Path to target file. | string | Yes      |         |
 
+### Tells whether the directory is empty.
+
+```php
+Filesystem::isDirEmpty($path);
+```
+
+| Attribute | Description            | Type   | Required | Default |
+|-----------|------------------------|--------|----------|---------|
+| $path     | Path to target folder. | string | Yes      |         |
+
 ## 📦 Quick Start
 
 ```php
