@@ -93,6 +93,16 @@ Filesystem::humanFormatSize($bytes, $precision);
 | $bytes     | Size in bytes.              | int  | Yes      |         |
 | $precision | Precision of rounding size. | int  | No       | null    |
 
+### Deletes a file.
+
+```php
+Filesystem::removeFile($path);
+```
+
+| Attribute | Description          | Type   | Required | Default |
+|-----------|----------------------|--------|----------|---------|
+| $path     | Path to target file. | string | Yes      |         |
+
 ## 📦 Quick Start
 
 ```php

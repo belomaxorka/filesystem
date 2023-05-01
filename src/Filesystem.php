@@ -46,6 +46,23 @@ final class Filesystem
 	}
 
 	/**
+	 * Deletes a file.
+	 *
+	 * @param string $path Path to target file.
+	 * @return bool
+	 * @throws FileNotFoundException
+	 * @since v0.0.3
+	 */
+	public static function removeFile(string $path): bool
+	{
+		if (self::isFile($path)) {
+			return unlink($path);
+		}
+
+		return false;
+	}
+
+	/**
 	 * Convert bytes to be human-readable format.
 	 *
 	 * @param int $bytes Size in bytes.
