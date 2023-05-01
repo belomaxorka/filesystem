@@ -21,7 +21,7 @@ use belomaxorka\Filesystem\Exceptions\FolderNotFoundException;
 final class Filesystem
 {
 	/**
-	 * Params for humanFormatSize method
+	 * Params for humanFormatSize method.
 	 *
 	 * @since v0.0.3
 	 */
@@ -50,13 +50,16 @@ final class Filesystem
 	 *
 	 * @param string $path Path to target file.
 	 * @return bool
-	 * @throws FileNotFoundException
 	 * @since v0.0.3
 	 */
 	public static function removeFile(string $path): bool
 	{
-		if (self::isFile($path)) {
-			return unlink($path);
+		try {
+			if (self::isFile($path)) {
+				return unlink($path);
+			}
+		} catch (FileNotFoundException $exception) {
+			return false;
 		}
 
 		return false;
