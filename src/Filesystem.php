@@ -21,6 +21,17 @@ use belomaxorka\Filesystem\Exceptions\FolderNotFoundException;
 final class Filesystem
 {
 	/**
+	 * Params for humanFormatSize method
+	 *
+	 * @since v0.0.3
+	 */
+	private const HUMAN_FORMAT_SIZE = [
+		'BYTE_UNITS' => ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
+		'BYTE_PRECISION' => [0, 0, 1, 2, 2, 3, 3, 4, 4],
+		'BYTE_NEXT' => 1024
+	];
+
+	/**
 	 * Checks whether a file or directory exists.
 	 *
 	 * @param string $path Path to target file or folder.
@@ -32,6 +43,23 @@ final class Filesystem
 		clearstatcache();
 
 		return file_exists($path);
+	}
+
+	/**
+	 * Convert bytes to be human-readable format.
+	 *
+	 * @param int $bytes Size in bytes.
+	 * @param int|null $precision Precision of rounding size.
+	 * @return string
+	 * @since v0.0.3
+	 */
+	public static function humanFormatSize(int $bytes, int $precision = null): string
+	{
+		for ($i = 0; ($bytes / self::HUMAN_FORMAT_SIZE['BYTE_NEXT']) >= 0.9 && $i < count(self::HUMAN_FORMAT_SIZE['BYTE_UNITS']); $i++) {
+			$bytes /= self::HUMAN_FORMAT_SIZE['BYTE_NEXT'];
+		}
+
+		return (round($bytes, is_null($precision) ? self::HUMAN_FORMAT_SIZE['BYTE_PRECISION'][$i] : $precision) . self::HUMAN_FORMAT_SIZE['BYTE_UNITS'][$i]);
 	}
 
 	/**

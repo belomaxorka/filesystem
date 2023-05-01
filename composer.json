@@ -2,7 +2,7 @@
 	"name": "belomaxorka/filesystem",
 	"description": "PHP library for file and directory management. Provides basic methods for the filesystem.",
 	"type": "library",
-	"version": "v0.0.2",
+	"version": "v0.0.3",
 	"keywords": [
 		"File",
 		"Filesystem library",
