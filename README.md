@@ -16,6 +16,7 @@
 - [Installation](#-installation)
 - [Methods](#-methods)
 - [Quick Start](#-quick-start)
+- [Contributors](#-contributors)
 - [License](#-license)
 
 ---
@@ -40,6 +41,14 @@ require __DIR__ . '/vendor/autoload.php';
 
 use belomaxorka\Filesystem\Filesystem;
 ```
+
+## 💚 Contributors
+
+<a href="https://github.com/belomaxorka/filesystem/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=belomaxorka/filesystem"  alt=""/>
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 
 ## 📖 License
 
