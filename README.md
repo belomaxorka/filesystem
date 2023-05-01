@@ -82,6 +82,17 @@ Filesystem::isWritable($path);
 |-----------|--------------------------------|--------|----------|---------|
 | $path     | Path to target file or folder. | string | Yes      |         |
 
+### Convert bytes to be human-readable format.
+
+```php
+Filesystem::humanFormatSize($bytes, $precision);
+```
+
+| Attribute  | Description                 | Type | Required | Default |
+|------------|-----------------------------|------|----------|---------|
+| $bytes     | Size in bytes.              | int  | Yes      |         |
+| $precision | Precision of rounding size. | int  | No       | null    |
+
 ## 📦 Quick Start
 
 ```php
