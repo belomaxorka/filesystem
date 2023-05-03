@@ -3,10 +3,10 @@
 
 <p align="center">
   <a href="https://github.com/belomaxorka/filesystem/blob/main/LICENSE"><img src="https://img.shields.io/github/license/belomaxorka/filesystem" alt="License"></a>
-  <a href="https://packagist.org/packages/torrentpier/torrentpier"><img src="https://img.shields.io/packagist/stars/belomaxorka/filesystem" alt="Stars"></a>
-  <a href="https://packagist.org/packages/torrentpier/torrentpier"><img src="https://img.shields.io/packagist/dt/belomaxorka/filesystem" alt="Downloads"></a>
-  <a href="https://packagist.org/packages/torrentpier/torrentpier"><img src="https://img.shields.io/packagist/v/belomaxorka/filesystem" alt="Version"></a>
-  <a href="https://github.com/torrentpier/torrentpier/releases"><img src="https://img.shields.io/github/release-date/belomaxorka/filesystem" alt="Last release"></a>
+  <a href="https://packagist.org/packages/belomaxorka/filesystem"><img src="https://img.shields.io/packagist/stars/belomaxorka/filesystem" alt="Stars"></a>
+  <a href="https://packagist.org/packages/belomaxorka/filesystem"><img src="https://img.shields.io/packagist/dt/belomaxorka/filesystem" alt="Downloads"></a>
+  <a href="https://packagist.org/packages/belomaxorka/filesystem"><img src="https://img.shields.io/packagist/v/belomaxorka/filesystem" alt="Version"></a>
+  <a href="https://github.com/belomaxorka/filesystem/releases"><img src="https://img.shields.io/github/release-date/belomaxorka/filesystem" alt="Last release"></a>
   <img src="https://img.shields.io/github/repo-size/belomaxorka/filesystem" alt="Size">
 </p>
 
