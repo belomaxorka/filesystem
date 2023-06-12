@@ -12,6 +12,7 @@ namespace belomaxorka\Filesystem;
 use FilesystemIterator;
 use RecursiveDirectoryIterator;
 
+use belomaxorka\Filesystem\Exceptions\GenericNotFoundException;
 use belomaxorka\Filesystem\Exceptions\FileNotFoundException;
 use belomaxorka\Filesystem\Exceptions\FolderNotFoundException;
 
@@ -96,6 +97,8 @@ class Filesystem
 			throw new FileNotFoundException($path);
 		}
 
+		clearstatcache();
+
 		return is_file($path);
 	}
 
@@ -113,6 +116,8 @@ class Filesystem
 			throw new FolderNotFoundException($path);
 		}
 
+		clearstatcache();
+
 		return is_dir($path);
 	}
 
@@ -126,11 +131,11 @@ class Filesystem
 	 */
 	public static function isDirEmpty(string $path): bool
 	{
-		if (self::isDir($path)) {
-			return (iterator_count((new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS))) === 0);
+		if (!self::isDir($path)) {
+			return false;
 		}
 
-		return true;
+		return (iterator_count((new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS))) === 0);
 	}
 
 	/**
@@ -138,10 +143,15 @@ class Filesystem
 	 *
 	 * @param string $path Path to target file or folder.
 	 * @return bool
+	 * @throws GenericNotFoundException
 	 * @since v0.0.2
 	 */
 	public static function isReadable(string $path): bool
 	{
+		if (!self::exists($path)) {
+			throw new GenericNotFoundException($path);
+		}
+
 		clearstatcache();
 
 		return is_readable($path);
@@ -152,10 +162,15 @@ class Filesystem
 	 *
 	 * @param string $path Path to target file or folder.
 	 * @return bool
+	 * @throws GenericNotFoundException
 	 * @since v0.0.2
 	 */
 	public static function isWritable(string $path): bool
 	{
+		if (!self::exists($path)) {
+			throw new GenericNotFoundException($path);
+		}
+
 		clearstatcache();
 
 		return is_writable($path);
