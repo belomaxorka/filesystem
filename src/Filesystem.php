@@ -21,7 +21,7 @@ use belomaxorka\Filesystem\Exceptions\FolderNotFoundException;
  * @package belomaxorka\Filesystem
  * @since v0.0.1
  */
-final class Filesystem
+class Filesystem
 {
 	/**
 	 * Params for humanFormatSize method.
