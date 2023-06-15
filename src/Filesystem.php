@@ -59,11 +59,11 @@ class Filesystem
 	 */
 	public static function removeFile(string $path): bool
 	{
-		if (self::isFile($path)) {
-			return unlink($path);
+		if (!self::isFile($path)) {
+			return false;
 		}
 
-		return false;
+		return unlink($path);
 	}
 
 	/**
